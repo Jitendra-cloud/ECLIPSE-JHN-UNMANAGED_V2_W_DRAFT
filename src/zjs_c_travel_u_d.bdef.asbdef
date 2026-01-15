@@ -1,0 +1,38 @@
+projection;
+strict ( 2 );
+use draft ;
+
+define behavior for ZJS_C_TRAVEL_U_D alias travel
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Activate;
+  use action Discard;
+  use action Edit;
+  use action Prepare;
+  use action Resume;
+
+  use action set_status_booked;
+
+  use association _Booking { create; with draft; }
+}
+
+define behavior for ZJS_C_BOOKING_U_D alias booking
+{
+  use update;
+  use delete;
+
+  use association _BookSupplement { create; with draft; }
+  use association _Travel { with draft; }
+}
+
+define behavior for ZJS_C_BOOKINGSUPPLEMENT_U_D alias bookingsupplement
+{
+  use update;
+  use delete;
+
+  use association _Travel { with draft; }
+  use association _Booking { with draft; }
+}

@@ -1,0 +1,7 @@
+@EndUserText.label: 'Service Definition'
+@ObjectModel.leadingEntity.name: 'ZJS_C_TRAVEL_U_D'
+define service ZJS_SD_TRAVEL_U_W_DRAFT {
+  expose ZJS_C_TRAVEL_U_D            as Travel;
+  expose ZJS_C_BOOKING_U_D           as Booking;
+  expose ZJS_C_BOOKINGSUPPLEMENT_U_D as BookingSupplement;
+}
